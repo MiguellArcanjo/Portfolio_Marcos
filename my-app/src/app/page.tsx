@@ -126,7 +126,7 @@ export default function Home() {
               <div>
                 <h1>Site para Órgão Público : SECOB</h1>
                 <p className={styles.typeProject}>Desktop/Mobile</p>
-                <p className={styles.aboutProject}>Site institucional desenvolvido para apresentar informações sobre a SECOB (provavelmente uma Secretaria de Obras ou similar). Foco em acessibilidade, linguagem clara e design responsivo. Ideal para órgãos governamentais ou projetos sociais que precisam se comunicar com a população de forma visualmente atrativa e funcional.</p>
+                <p className={styles.aboutProjectBottom}>Site institucional desenvolvido para apresentar informações sobre a SECOB (provavelmente uma Secretaria de Obras ou similar). Foco em acessibilidade, linguagem clara e design responsivo. Ideal para órgãos governamentais ou projetos sociais que precisam se comunicar com a população de forma visualmente atrativa e funcional.</p>
               </div>
               <img src="/secobAssets.svg" alt="Secob" className={styles.secobImage}/>
             </div>

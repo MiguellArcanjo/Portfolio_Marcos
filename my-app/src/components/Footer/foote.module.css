@@ -1,6 +1,6 @@
 .footerContainer {
     /* background-color: #00183E; */
-    padding: 80px;
+    padding: 40px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     display: flex;
@@ -77,4 +77,11 @@
 .input::placeholder {
     color: rgba(255, 255, 255, 0.30);
     font-size: 13px;
+}
+
+@media (min-width: 1580px) {
+    .footerContainer {
+        /* background-color: #00183E; */
+        padding: 80px;
+    }
 }
