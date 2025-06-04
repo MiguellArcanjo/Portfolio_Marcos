@@ -1,0 +1,140 @@
+.containerCardsWhiteSection2,
+.containerCardsBlueSection2 {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 30px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  height: auto;
+}
+
+.containerCardsBlueSection2 {
+  background-color: #00183E;
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 160px;
+}
+
+.iconWrapper img {
+  width: 120px;
+  height: auto;
+}
+
+.divider {
+  width: 1px;
+  height: 100px; /* ou 120px, dependendo do seu layout */
+  background-color: #00183E;
+}
+
+.containerCardsBlueSection2 .divider {
+  background-color: #FFF;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.containerCardsWhiteSection2 .textContent h1,
+.containerCardsBlueSection2 .textContent h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #00183E;
+}
+
+.containerCardsBlueSection2 .textContent h1 {
+  color: #FFF;
+}
+
+.containerCardsWhiteSection2 .textContent p,
+.containerCardsBlueSection2 .textContent p {
+  font-size: 18px;
+  font-weight: 300;
+  color: #00183E;
+  text-align: justify;
+  line-height: 140%;
+}
+
+.containerCardsBlueSection2 .textContent p {
+  color: #FFF;
+}
+
+
+@media (min-width: 1580px) {
+
+    .containerCardsWhiteSection2,
+    .containerCardsBlueSection2 {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding: 40px 30px;
+        margin-bottom: 50px;
+        border-radius: 20px;
+        height: auto;
+    }
+
+    .containerCardsBlueSection2 {
+        background-color: #00183E;
+    }
+
+    .iconWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 160px;
+    }
+
+    .iconWrapper img {
+        width: 120px;
+        height: auto;
+    }
+
+    .divider {
+        width: 1px;
+        height: 100px; /* ou 120px, dependendo do seu layout */
+        background-color: #00183E;
+    }
+
+    .containerCardsBlueSection2 .divider {
+        background-color: #FFF;
+    }
+
+    .textContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .containerCardsWhiteSection2 .textContent h1,
+    .containerCardsBlueSection2 .textContent h1 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #00183E;
+    }
+
+    .containerCardsBlueSection2 .textContent h1 {
+        color: #FFF;
+    }
+
+    .containerCardsWhiteSection2 .textContent p,
+    .containerCardsBlueSection2 .textContent p {
+        font-size: 18px;
+        font-weight: 300;
+        color: #00183E;
+        text-align: justify;
+        line-height: 140%;
+    }
+
+    .containerCardsBlueSection2 .textContent p {
+        color: #FFF;
+    }
+
+}

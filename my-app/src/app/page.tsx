@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Nav from "@/components/Nav/nav"
 import Footer from "@/components/Footer/footer";
+import { CardWhite, CardBlue} from "@/components/CardProject/card";
 import { useState, useEffect, useRef  } from "react";
 import RevealSection from "@/components/RevealSection/revealSection";
 
@@ -62,43 +63,37 @@ export default function Home() {
         </RevealSection>
 
         <RevealSection>
-          <section className={`${styles.section2}`} id="section2">
-            <div>
-              <h1 className={`${styles.titleSection2}`}>Atuação</h1>
-
-              <div className={styles.skillsInfo}>
-                <div>
-                  <div className={styles.skillContainer}>
-                    <img src="/computerDesign.svg" alt="Computador Icone" width={130}/>
-                    <p>Product Design</p>
-                    <p className={styles.aboutSkill}>Criação de soluções digitais completas usando estratégia, design visual e experiência do usuário. O processo envolve desde a definição de problemas e validação de ideias, até a prototipação e documentação de interfaces, unindo análise de dados e testes de usabilidade para desenvolver produtos funcionais, escaláveis e centrados no usuário.</p>
-                  </div>
-
-                  <div className={styles.skillContainer}>
-                    <img src="/search.svg" alt="Computador Icone" />
-                    <p>UX Research</p>
-                    <p className={styles.aboutSkill}>Pesquisa centrada no entendimento dos usuários por meio da análise de dados, comportamentos e necessidades, com o objetivo de informar o desenvolvimento de experiências digitais mais eficazes e alinhadas aos objetivos do produto</p>
-                  </div>
-                </div>
-
-                <div>
-                  <img src="/line.svg" alt="linha" />
-                </div>
-
-                <div>
-                  <div className={styles.skillContainer}>
-                    <img src="/computerInterface.svg" alt="Computador Icone" />
-                    <p>Redesign de Interfaces</p>
-                    <p className={styles.aboutSkill}>Reformulação visual e estrutural de interfaces com foco em modernização, usabilidade e melhoria da experiência do usuário. O processo contempla a análise de produtos existentes, identificação de pontos de melhoria e aplicação de soluções que otimizam a navegação, fortalecem a identidade visual e alinham o design às necessidades do público e do negócio.</p>
-                  </div>
-
-                  <div  className={styles.skillContainer}>
-                    <img src="/phone.svg" alt="Computador Icone" />
-                    <p>Social Media Design</p>
-                    <p className={styles.aboutSkill}>Desenvolvimento de conteúdos visuais estratégicos para plataformas de redes sociais, focados em engajamento, identidade da marca e comunicação eficaz. Inclui a criação de posts, banners, stories e peças interativas que fortalecem a presença digital e promovem interação com o público.</p>
-                  </div>
-                </div>
+          <section className={styles.section2} id="section2">
+            <div className={styles.section2Content}>
+              <div className={styles.containerTitleSection2}>
+                <p className={styles.paragrafoTopSection2}>Minhas</p>
+                <h1 className={styles.titleSection2}>Atuações</h1>
               </div>
+    
+              <CardWhite 
+                iconSrc="/computerDesign.svg"
+                title="Product Design"
+                description="Criação completa de soluções digitais, da ideação aos testes, focada em estratégia, design, UX e dados para desenvolver produtos funcionais, escaláveis e centrados no usuário."
+              />
+
+              <CardBlue 
+                iconSrc="/searchBranco.svg"
+                title="UX Research"
+                description="Pesquisa e análise de usuários para entender necessidades, comportamentos e preferências, informando decisões de design e estratégia de produto."
+              />
+
+              <CardWhite 
+                iconSrc="/phone.svg"
+                title="Social Media Design"
+                description="Desenvolvimento de conteúdo visual estratégico para redes sociais, focado em engajamento, identidade da marca e comunicação eficaz, fortalecendo a presença digital e a interação com o público."
+              />
+
+              <CardBlue 
+                iconSrc="/computerBranco.svg"
+                title="Redesign de Interfaces"
+                description="Reformulação visual e estrutural de interfaces para modernização, melhoria da usabilidade e UX, otimizando navegação, fortalecendo a identidade visual e alinhando o design às necessidades do público e do negócio."
+              />
+             
             </div>
           </section>
         </RevealSection>
