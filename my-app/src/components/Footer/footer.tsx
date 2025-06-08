@@ -21,6 +21,9 @@ function Footer() {
                 <div className={styles.inputContainer}>
                     <label htmlFor="" className={styles.label}>Fale comigo</label>
                     <input type="text" placeholder='Me envie uma mensagem...' className={styles.input}/>
+                    <button className={styles.sendButton}>
+                        <img src="/arriwRightMini.svg" alt="Enviar" />
+                    </button>
                 </div>
 
             </div>

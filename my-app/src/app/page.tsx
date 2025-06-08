@@ -38,7 +38,7 @@ export default function Home() {
 
               <div className={styles.buttons}>
                 <button className={styles.contact}>Contato</button>
-                <button className={styles.portfolio}>Portfólio</button>
+                <button className={styles.portfolio}>Sobre mim</button>
               </div>
 
               <div className={styles.skills}>
@@ -70,33 +70,42 @@ export default function Home() {
                 <h1 className={styles.titleSection2}>Atuações</h1>
               </div>
     
-              <CardWhite 
-                iconSrc="/computerDesign.svg"
-                title="Product Design"
-                description="Criação completa de soluções digitais, da ideação aos testes, focada em estratégia, design, UX e dados para desenvolver produtos funcionais, escaláveis e centrados no usuário."
-              />
+              <RevealSection>
+                <CardWhite 
+                  iconSrc="/computerDesign.svg"
+                  title="Product Design"
+                  description="Criação completa de soluções digitais, da ideação aos testes, focada em estratégia, design, UX e dados para desenvolver produtos funcionais, escaláveis e centrados no usuário."
+                />
+              </RevealSection>
 
-              <CardBlue 
-                iconSrc="/searchBranco.svg"
-                title="UX Research"
-                description="Pesquisa e análise de usuários para entender necessidades, comportamentos e preferências, informando decisões de design e estratégia de produto."
-              />
 
-              <CardWhite 
-                iconSrc="/phone.svg"
-                title="Social Media Design"
-                description="Desenvolvimento de conteúdo visual estratégico para redes sociais, focado em engajamento, identidade da marca e comunicação eficaz, fortalecendo a presença digital e a interação com o público."
-              />
+              <RevealSection>
+                <CardBlue 
+                  iconSrc="/searchBranco.svg"
+                  title="UX Research"
+                  description="Pesquisa e análise de usuários para entender necessidades, comportamentos e preferências, informando decisões de design e estratégia de produto."
+                />
+              </RevealSection>
 
-              <CardBlue 
-                iconSrc="/computerBranco.svg"
-                title="Redesign de Interfaces"
-                description="Reformulação visual e estrutural de interfaces para modernização, melhoria da usabilidade e UX, otimizando navegação, fortalecendo a identidade visual e alinhando o design às necessidades do público e do negócio."
-              />
-             
+              <RevealSection>
+                <CardWhite 
+                  iconSrc="/phone.svg"
+                  title="Social Media Design"
+                  description="Desenvolvimento de conteúdo visual estratégico para redes sociais, focado em engajamento, identidade da marca e comunicação eficaz, fortalecendo a presença digital e a interação com o público."
+                />
+              </RevealSection>
+
+              <RevealSection>
+                <CardBlue 
+                  iconSrc="/computerBranco.svg"
+                  title="Redesign de Interfaces"
+                  description="Reformulação visual e estrutural de interfaces para modernização, melhoria da usabilidade e UX, otimizando navegação, fortalecendo a identidade visual e alinhando o design às necessidades do público e do negócio."
+                />
+              </RevealSection>
             </div>
           </section>
         </RevealSection>
+
         <RevealSection>
           <section className={styles.section3}>
             <div className={styles.topDiv}>
@@ -129,6 +138,20 @@ export default function Home() {
         </RevealSection>
         <RevealSection>
           <section className={styles.section4} id="section3">
+            {/* SELECT para MOBILE */}
+            <select
+              className={styles.tabSelect}
+              value={activeTab}
+              onChange={(e) => setActiveTab(e.target.value)}
+            >
+              {tabs.map((tab) => (
+                <option key={tab} value={tab}>
+                  {tab}
+                </option>
+              ))}
+            </select>
+
+            {/* TABS para DESKTOP */}
             <ul className={styles.tabs}>
               {tabs.map((tab) => (
                 <li
@@ -165,13 +188,13 @@ export default function Home() {
 
               {(activeTab === 'UX Research') && (
                 <div className={styles.infoProject}>
-                  <h1>em breve disponivel! :)</h1>
+                  <h1>em breve disponível! :)</h1>
                 </div>
               )}
 
               {(activeTab === 'Todos' || activeTab === 'Social Media') && (
                 <div className={styles.unicImage}>
-                  <img src="/loginProject.svg" className={styles.feed}/>
+                  <img src="/loginProject.svg" className={styles.feed} />
                 </div>
               )}
             </div>

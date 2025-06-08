@@ -7,6 +7,40 @@
   margin-bottom: 50px;
   border-radius: 20px;
   height: auto;
+  box-sizing: border-box; 
+}
+
+.containerCardsWhiteSection2 {
+  position: relative;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+  overflow: visible;
+  transition: opacity 0.3s ease;
+}
+
+.containerCardsWhiteSection2::after {
+  content: "";
+  position: absolute;
+  inset: 0; 
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 2;
+
+  background: radial-gradient(
+    90px circle at var(--mouse-x) var(--mouse-y),
+    #00bfff,
+    transparent 60%
+  );
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+
+  padding: 2px;
+  box-sizing: border-box;
+  transition: opacity 0.3s ease;
 }
 
 .containerCardsBlueSection2 {
@@ -66,6 +100,52 @@
   color: #FFF;
 }
 
+@media (max-width: 768px) {
+  .containerCardsWhiteSection2,
+  .containerCardsBlueSection2 {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 24px;
+    gap: 20px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    width: 90vw; /* 👈 deixa o card ocupar quase toda a tela */
+    max-width: 400px;
+  }
+
+  .containerCardsWhiteSection2 {
+    background-color: #F4F6FA;
+  }
+
+  .iconWrapper img {
+    width: 64px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .textContent {
+    padding: 0 10px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .textContent h1 {
+    font-size: 16px !important;
+  }
+
+  .textContent p {
+    font-size: 14px !important;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  .containerCardsWhiteSection2::after {
+    display: none;
+  }
+}
 
 @media (min-width: 1580px) {
 

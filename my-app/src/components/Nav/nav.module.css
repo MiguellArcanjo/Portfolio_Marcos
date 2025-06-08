@@ -13,6 +13,13 @@
   transition: box-shadow 0.3s ease;
 }
 
+.blur {
+  background-color: rgba(255, 255, 255, 0.6); 
+  backdrop-filter: blur(5px); 
+  -webkit-backdrop-filter: blur(5px); 
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
 .shadow {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -54,6 +61,51 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #00183E;
+  margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-left: 10px;
+  }
+
+  .logoText {
+    display: none; /* Esconde nome e função no mobile */
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 20px;
+  }
+
+  .navLinks.open {
+    display: flex;
+  }
+
+  .navLinks a {
+    padding: 10px 0;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
 }
 
 @media (min-width: 1580px) {

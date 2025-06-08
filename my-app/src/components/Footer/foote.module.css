@@ -1,87 +1,135 @@
 .footerContainer {
-    /* background-color: #00183E; */
-    padding: 40px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    display: flex;
-    background-image: url('/Rectangle 11.svg');
-    background-repeat: repeat;
-    background-size: cover;
-    flex-direction: column;
-}
-
-.email {
-    color: rgba(255, 255, 255, 0.40);
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.40);
-    padding-bottom: 10px;
-}
-
-.socialIcons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}
-
-.socialIcons img {
-    cursor: pointer;
+  padding: 40px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background-image: url('/Rectangle 11.svg');
+  background-repeat: repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.direitos {
-    color: rgba(255, 255, 255, 0.50);
-    font-size: 13px;
-    font-style: italic;
-    font-weight: 500;
-    line-height: normal;
-    text-align: right;
-    margin-top: 30px;
+.email {
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.40);
+  padding-bottom: 10px;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 16px;
+}
+
+.socialIcons img {
+  cursor: pointer;
 }
 
 .inputContainer {
-    position: relative;
-    padding: 15px;
-}
-
-.input {
-    border: 1px solid #fff;
-    padding: 7px;
-    background-color: transparent;
-    border-radius: 4px;
-    width: 230px;
-    outline: none;
-    color: rgba(255, 255, 255, 0.30);
+  position: relative;
+  width: 260px;
+  margin-top: 20px;
+  overflow: visible; /* permite que o label apareça fora da caixa */
 }
 
 .label {
-    position: absolute;
-    color: #fff;
-    font-size: 13px;
-    font-weight: bold;
+  position: absolute;
+  top: -9px; /* ajuste fino para evitar corte */
+  left: 15px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  background-image: url('/Rectangle 11.svg');
+  padding: 0 10px 0 15px;
+  z-index: 1; /* garante que fique por cima do input */
+}
 
-    background-image: url('/Rectangle 11.svg');
-    bottom: 38px;
-    left: 23px;
-    padding: 5px;
+.input {
+  width: 100%;
+  padding: 8px 36px 8px 10px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  outline: none;
 }
 
 .input::placeholder {
-    color: rgba(255, 255, 255, 0.30);
-    font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 13px;
 }
 
+.sendButton {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.sendButton img {
+  width: 16px;
+  height: 16px;
+}
+
+.direitos {
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .email {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .socialIcons {
+    justify-content: center;
+  }
+
+  .direitos {
+    font-size: 12px;
+    margin-top: 40px;
+  }
+
+  .inputContainer {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
+/* DESKTOP GRANDE */
 @media (min-width: 1580px) {
-    .footerContainer {
-        /* background-color: #00183E; */
-        padding: 80px;
-    }
+  .footerContainer {
+    padding: 80px;
+  }
 }
