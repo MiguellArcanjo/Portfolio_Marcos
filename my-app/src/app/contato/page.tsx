@@ -103,6 +103,16 @@ export default function Contato() {
               </div>
 
               <button type="submit" className={styles.button}>Enviar Mensagem</button>
+              <div className={styles.contactMobileInfo}>
+                <div className={styles.contactItem}>
+                  <img src="phoneIconAzul.svg" alt="Ícone telefone" />
+                  <p>+55 (83) 99688-1746</p>
+                </div>
+                <div className={styles.contactItem}>
+                  <img src="mailIconAzul.svg" alt="Ícone e-mail" />
+                  <p>marcosldc.contato@gmail.com</p>
+                </div>
+              </div>
             </div>
           </form>
         </section>

@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './nav.module.css';
 
 function Nav() {
   const [hasShadow, setHasShadow] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menuRef = useRef<HTMLDivElement>(null);
+  const hamburgerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleScroll() {
@@ -18,6 +21,25 @@ function Nav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+  function handleClickOutside(event: MouseEvent) {
+    if (
+      isMenuOpen &&
+      menuRef.current &&
+      !menuRef.current.contains(event.target as Node) &&
+      hamburgerRef.current &&
+      !hamburgerRef.current.contains(event.target as Node)
+    ) {
+      setIsMenuOpen(false);
+    }
+  }
+
+  document.addEventListener('mousedown', handleClickOutside);
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  };
+}, [isMenuOpen]);
+
   return (
     <nav className={`${styles.navContainer} ${hasShadow ? `${styles.blur} ${styles.shadow}` : ''}`}>
       <div className={styles.logo}>
@@ -28,11 +50,18 @@ function Nav() {
         </div>
       </div>
 
-      <div className={styles.hamburger} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+      <div
+        className={styles.hamburger}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        ref={hamburgerRef}
+      >
         ☰
       </div>
 
-      <div className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
+      <div
+        className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}
+        ref={menuRef}
+      >
         <a href="/#section1">Sobre</a>
         <a href="/#section2">Atuação</a>
         <a href="/#section3">Portfólio</a>
