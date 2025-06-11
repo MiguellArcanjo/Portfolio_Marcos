@@ -33,10 +33,10 @@ function Nav() {
       </div>
 
       <div className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
-        <a href="#section1">Sobre</a>
-        <a href="#section2">Atuação</a>
-        <a href="#section3">Portfólio</a>
-        <a href="#">Contato</a>
+        <a href="/#section1">Sobre</a>
+        <a href="/#section2">Atuação</a>
+        <a href="/#section3">Portfólio</a>
+        <a href="/contato">Contato</a>
       </div>
     </nav>
   );

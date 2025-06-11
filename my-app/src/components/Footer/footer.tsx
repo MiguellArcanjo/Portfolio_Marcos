@@ -18,16 +18,23 @@ function Footer() {
                     </div>
                 </div>
 
-                <div className={styles.inputContainer}>
-                    <label htmlFor="" className={styles.label}>Fale comigo</label>
-                    <input type="text" placeholder='Me envie uma mensagem...' className={styles.input}/>
-                    <button className={styles.sendButton}>
-                        <img src="/arriwRightMini.svg" alt="Enviar" />
-                    </button>
+                <div className={styles.inputWrapper}>
+                    <div className={styles.inputContainer}>
+                        <label htmlFor="mensagem" className={styles.label}>Fale comigo</label>
+                        <input
+                        id="mensagem"
+                        type="text"
+                        placeholder="Me envie uma mensagem..."
+                        className={styles.input}
+                        />
+                        <button className={styles.sendButton}>
+                        <img src="/enviarMini.svg" alt="Enviar" />
+                        </button>
+                    </div>
+                    <p className={styles.direitos}>@ 2025 Marcos Cunha</p>
                 </div>
 
             </div>
-            <p className={styles.direitos}>@ 2025 Marcos cunha</p>
         </footer>
     )
 }

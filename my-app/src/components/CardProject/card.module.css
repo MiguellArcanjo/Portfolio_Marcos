@@ -27,7 +27,7 @@
   z-index: 2;
 
   background: radial-gradient(
-    90px circle at var(--mouse-x) var(--mouse-y),
+    140px circle at var(--mouse-x) var(--mouse-y),
     #00bfff,
     transparent 60%
   );

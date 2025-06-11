@@ -1,0 +1,296 @@
+.mainContainerContato {
+    display: flex;
+    padding: 22px 47px;
+    align-items: center;
+    align-content: center;
+    gap: 0px 194px;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sectionIntroduction {
+    display: flex;
+    width: 90%;
+    padding: 22px 47px;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    gap: 20px;
+    margin: 100px auto 0 auto;
+}
+
+.sectionIntroduction h1 {
+    color: #00183E;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.p1 {
+    color: rgba(0, 24, 62, 0.50);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.p2 {
+    color: rgba(0, 24, 62, 0.50);
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.destaque {
+    color: #00183E;
+    font-weight: bold;
+}
+
+.sectionForm {
+    margin: 0 50px;
+    padding: 80px;
+    width: 100%;
+}
+
+.sectionForm form {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: 700px;
+    max-width: 1300px;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0px 0px 60px 30px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+}
+
+.directionLeft {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #00183E;
+    width: 60%;
+    padding: 50px 50px 0 50px;
+    border-radius: 10px;
+    background-image: url('/Rectangle 11.svg');
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contactInfo h1 {
+    color: #FFF;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.contactInfo p {
+    color: rgba(249, 249, 249, 0.50);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.contactInfo div {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.contactDetails {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contactDetails p {
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.logo {
+    text-align: center;
+}
+
+.directionRight {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    padding: 50px 0;
+    border-radius: 10px;
+    justify-content: center;;
+}
+
+.button {
+  align-self: flex-end;
+  margin-right: 50px;
+  background-color: #00183E;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background-color: #003288;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radioLabel {
+  font-size: 14px;
+  color: #00183E;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.radioOptions {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #00183E;
+  cursor: pointer;
+}
+
+.radioOption input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #D0D7DE; /* cinza claro */
+  border-radius: 50%;
+  background-color: #F6F8FA;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.radioOption input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #00183E;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+/* Label do texto */
+.radioOption span {
+  font-weight: 400;
+  color: #B0B8C4;
+  transition: all 0.2s ease;
+}
+
+/* Texto da opção selecionada */
+.radioOption input[type="radio"]:checked + span {
+  font-weight: 600;
+  color: #00183E;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  padding-right: 30px;
+  margin-top: 30px;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldTextArea {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    margin-top: 40px;
+}
+
+.fieldTextArea label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #00183E80;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #00183E80;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #00183E80;
+}
+
+.field input {
+  border: none;
+  border-bottom: 1px solid #c0c6d2;
+  padding: 8px 4px;
+  font-size: 14px;
+  background: transparent;
+  color: #00183E;
+  outline: none;
+}
+
+.field input::placeholder {
+  color: #a0a9b8;
+  font-style: italic;
+}
+
+
+.fieldTextArea textarea,
+.textarea {
+  border: none;
+  border-bottom: 1px solid #c0c6d2;
+  padding: 10px 4px;
+  font-size: 14px;
+  background: transparent;
+  color: #00183E;
+  outline: none;
+  height: 40px;
+  resize: none;
+  font-family: inherit;
+}
+
+.fieldTextArea textarea::placeholder {
+  color: #a0a9b8;
+  font-style: italic;
+}
