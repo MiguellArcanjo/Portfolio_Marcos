@@ -8,6 +8,8 @@
   margin: 100px auto 0 auto;
 }
 
+
+
 .mainContainer {
   display: flex;
   padding: 22px 47px;
@@ -144,6 +146,7 @@
   cursor: pointer;
   border: 1px solid #00183E;
   background-color: transparent;
+  overflow: hidden;
 }
 
 .skills {
@@ -168,6 +171,7 @@
   box-sizing: border-box; /* importante para evitar estouro */
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .paragrafoTopSection2 {
@@ -560,6 +564,7 @@
 
   .imageContainer {
     display: none;
+
   }
 
   .section2 {

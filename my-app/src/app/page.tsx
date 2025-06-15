@@ -1,31 +1,60 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import styles from "./page.module.css";
-import Nav from "@/components/Nav/nav"
+import Nav from "@/components/Nav/nav";
 import Footer from "@/components/Footer/footer";
-import { CardWhite, CardBlue} from "@/components/CardProject/card";
-import { useState, useEffect, useRef  } from "react";
+import { CardWhite, CardBlue } from "@/components/CardProject/card";
+import { useState, useEffect, useRef } from "react";
 import RevealSection from "@/components/RevealSection/revealSection";
 
-
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("Todos");
+  const tabs = ["Todos", "Interfaces", "Redesign", "UX Research", "Social Media"];
 
-  const [activeTab, setActiveTab] = useState('Todos');
-  const tabs = ['Todos', 'Interfaces', 'Redesign', 'UX Research', 'Social Media']
+  // Tilt Effect
+  const tiltRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const card = tiltRef.current;
+    if (card) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * 10;
+      const rotateY = ((x - centerX) / centerX) * -10;
+
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    const card = tiltRef.current;
+    if (card) {
+      card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    }
+  };
 
   return (
     <div className={`${styles.page}`}>
       <Nav />
 
-      <main className={styles.mainContainer}  id="section1">
+      <main className={styles.mainContainer} id="section1">
         <RevealSection>
           <section className={styles.section1}>
             <div className={styles.mainContent}>
               <h1 className={styles.title1}>Olá!</h1>
               <h1 className={styles.title2}>Me chamo Marcos :)</h1>
-              <p className={styles.aboutMe}>Designer Visual Júnior, com foco em <span className={styles.bold}>Product Design</span>. Crio experiências digitais intuitivas e funcionais, sempre alinhadas às necessidades dos usuários e aos objetivos dos projetos, buscando soluções inovadoras e impactantes.</p>
-              
+              <p className={styles.aboutMe}>
+                Designer Visual Júnior, com foco em <span className={styles.bold}>Product Design</span>. Crio
+                experiências digitais intuitivas e funcionais, sempre alinhadas às necessidades dos usuários e aos
+                objetivos dos projetos, buscando soluções inovadoras e impactantes.
+              </p>
+
               <div className={styles.clickHere}>
                 <p>Quer saber mais sobre mim?</p>
                 <a href="">Clique aqui</a>
@@ -33,7 +62,9 @@ export default function Home() {
 
               <div className={styles.experience}>
                 <h1>+ 3 Anos</h1>
-                <p>Experiência com <br /> UI/UX Design</p>
+                <p>
+                  Experiência com <br /> UI/UX Design
+                </p>
               </div>
 
               <div className={styles.buttons}>
@@ -47,17 +78,22 @@ export default function Home() {
                 <img src="/Vector.svg" alt="Vector" />
               </div>
             </div>
-            
 
-            <div className={styles.imageContainer}>
-              <Image
-                src="fotoMarcos.svg"
-                alt="Marcos Cunha"
-                width={500}
-                height={500}
-                className={styles.image}
+            <div
+              className={styles.imageContainer}
+              ref={tiltRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <Image 
+                src="/fotoMarcos.svg" 
+                alt="Marcos Cunha" 
+                width={500} 
+                height={500} 
+                className={styles.image} 
                 layout="responsive"
-              />
+                draggable={false}
+                />
             </div>
           </section>
         </RevealSection>
@@ -69,18 +105,17 @@ export default function Home() {
                 <p className={styles.paragrafoTopSection2}>Minhas</p>
                 <h1 className={styles.titleSection2}>Atuações</h1>
               </div>
-    
+
               <RevealSection>
-                <CardWhite 
+                <CardWhite
                   iconSrc="/computerDesign.svg"
                   title="Product Design"
                   description="Criação completa de soluções digitais, da ideação aos testes, focada em estratégia, design, UX e dados para desenvolver produtos funcionais, escaláveis e centrados no usuário."
                 />
               </RevealSection>
 
-
               <RevealSection>
-                <CardBlue 
+                <CardBlue
                   iconSrc="/searchBranco.svg"
                   title="UX Research"
                   description="Pesquisa e análise de usuários para entender necessidades, comportamentos e preferências, informando decisões de design e estratégia de produto."
@@ -88,7 +123,7 @@ export default function Home() {
               </RevealSection>
 
               <RevealSection>
-                <CardWhite 
+                <CardWhite
                   iconSrc="/phone.svg"
                   title="Social Media Design"
                   description="Desenvolvimento de conteúdo visual estratégico para redes sociais, focado em engajamento, identidade da marca e comunicação eficaz, fortalecendo a presença digital e a interação com o público."
@@ -96,7 +131,7 @@ export default function Home() {
               </RevealSection>
 
               <RevealSection>
-                <CardBlue 
+                <CardBlue
                   iconSrc="/computerBranco.svg"
                   title="Redesign de Interfaces"
                   description="Reformulação visual e estrutural de interfaces para modernização, melhoria da usabilidade e UX, otimizando navegação, fortalecendo a identidade visual e alinhando o design às necessidades do público e do negócio."
@@ -118,7 +153,11 @@ export default function Home() {
               <div>
                 <h1>Site Comercial : Real LED</h1>
                 <p className={styles.typeProject}>Desktop/Mobile</p>
-                <p className={styles.aboutProject}>Site corporativo para a empresa Real LED, especializada em soluções visuais para eventos. O layout prioriza a exposição de produtos, credibilidade comercial e experiência do usuário, com navegação responsiva e foco em conversão.</p>
+                <p className={styles.aboutProject}>
+                  Site corporativo para a empresa Real LED, especializada em soluções visuais para eventos. O layout
+                  prioriza a exposição de produtos, credibilidade comercial e experiência do usuário, com navegação
+                  responsiva e foco em conversão.
+                </p>
               </div>
             </div>
 
@@ -130,15 +169,20 @@ export default function Home() {
               <div>
                 <h1>Site para Órgão Público : SECOB</h1>
                 <p className={styles.typeProject}>Desktop/Mobile</p>
-                <p className={styles.aboutProjectBottom}>Site institucional desenvolvido para apresentar informações sobre a SECOB (provavelmente uma Secretaria de Obras ou similar). Foco em acessibilidade, linguagem clara e design responsivo. Ideal para órgãos governamentais ou projetos sociais que precisam se comunicar com a população de forma visualmente atrativa e funcional.</p>
+                <p className={styles.aboutProjectBottom}>
+                  Site institucional desenvolvido para apresentar informações sobre a SECOB (provavelmente uma Secretaria
+                  de Obras ou similar). Foco em acessibilidade, linguagem clara e design responsivo. Ideal para órgãos
+                  governamentais ou projetos sociais que precisam se comunicar com a população de forma visualmente
+                  atrativa e funcional.
+                </p>
               </div>
-              <img src="/secobAssets.svg" alt="Secob" className={styles.secobImage}/>
+              <img src="/secobAssets.svg" alt="Secob" className={styles.secobImage} />
             </div>
           </section>
         </RevealSection>
+
         <RevealSection>
           <section className={styles.section4} id="section3">
-            {/* SELECT para MOBILE */}
             <select
               className={styles.tabSelect}
               value={activeTab}
@@ -151,12 +195,11 @@ export default function Home() {
               ))}
             </select>
 
-            {/* TABS para DESKTOP */}
             <ul className={styles.tabs}>
               {tabs.map((tab) => (
                 <li
                   key={tab}
-                  className={`${styles.tab} ${activeTab === tab ? styles.active : ''}`}
+                  className={`${styles.tab} ${activeTab === tab ? styles.active : ""}`}
                   onClick={() => setActiveTab(tab)}
                 >
                   {tab}
@@ -165,34 +208,34 @@ export default function Home() {
             </ul>
 
             <div className={styles.imsProjects}>
-              {(activeTab === 'Todos' || activeTab === 'Interfaces') && (
+              {(activeTab === "Todos" || activeTab === "Interfaces") && (
                 <div>
                   <img src="/redProject.svg" />
                   <img src="/secobProject.svg" />
                 </div>
               )}
 
-              {(activeTab === 'Todos' || activeTab === 'Social Media') && (
+              {(activeTab === "Todos" || activeTab === "Social Media") && (
                 <div className={styles.socialFeed}>
                   <img className={styles.feed} src="/feed1.svg" />
                   <img className={styles.feed} src="/feed2.svg" />
                 </div>
               )}
 
-              {(activeTab === 'Todos' || activeTab === 'Interfaces' || activeTab === 'Redesign') && (
+              {(activeTab === "Todos" || activeTab === "Interfaces" || activeTab === "Redesign") && (
                 <div>
                   <img src="/login.svg" />
                   <img src="/miguel.svg" />
                 </div>
               )}
 
-              {(activeTab === 'UX Research') && (
+              {activeTab === "UX Research" && (
                 <div className={styles.infoProject}>
                   <h1>em breve disponível! :)</h1>
                 </div>
               )}
 
-              {(activeTab === 'Todos' || activeTab === 'Social Media') && (
+              {(activeTab === "Todos" || activeTab === "Social Media") && (
                 <div className={styles.unicImage}>
                   <img src="/loginProject.svg" className={styles.feed} />
                 </div>
