@@ -46,7 +46,6 @@ export default function Contato() {
         alert("✅ Mensagem enviada com sucesso!");
         setForm({ nome: "", sobrenome: "", email: "", telefone: "", tipo: "", mensagem: "" });
       } else {
-        setStatus(data.message || "Erro ao enviar mensagem.");
         alert("❌ Erro ao enviar mensagem.");
       }
     } catch {
