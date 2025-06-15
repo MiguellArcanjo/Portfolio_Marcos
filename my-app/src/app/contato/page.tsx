@@ -3,10 +3,52 @@
 import styles from "./page.module.css";
 import Nav from "@/components/Nav/nav"
 import Footer from "@/components/Footer/footer";
-import { s } from "framer-motion/client";
-
+import { useState } from "react";
 
 export default function Contato() {
+  const [form, setForm] = useState({
+    nome: "",
+    sobrenome: "",
+    email: "",
+    telefone: "",
+    tipo: "",
+    mensagem: "",
+  });
+  const [status, setStatus] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value, name, type } = e.target;
+    if (type === "radio") {
+      setForm((prev) => ({ ...prev, tipo: value }));
+    } else {
+      setForm((prev) => ({ ...prev, [id || name]: value }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus(null);
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: `${form.nome} ${form.sobrenome}`,
+          email: form.email,
+          message: `Telefone: ${form.telefone}\nTipo: ${form.tipo}\nMensagem: ${form.mensagem}`,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("Mensagem enviada com sucesso!");
+        setForm({ nome: "", sobrenome: "", email: "", telefone: "", tipo: "", mensagem: "" });
+      } else {
+        setStatus(data.message || "Erro ao enviar mensagem.");
+      }
+    } catch {
+      setStatus("Erro ao enviar mensagem.");
+    }
+  };
 
   return (
     <div className={`${styles.page}`}>
@@ -20,7 +62,7 @@ export default function Contato() {
         </section>
 
         <section className={styles.sectionForm}>
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <div className={styles.directionLeft}>
               <div className={styles.contactInfo}>
                 <h1>Informações de contato</h1>
@@ -52,22 +94,22 @@ export default function Contato() {
               <div className={styles.row}>
                 <div className={styles.field}>
                   <label htmlFor="nome">Nome</label>
-                  <input type="text" id="nome" placeholder="Digite seu nome..." />
+                  <input type="text" id="nome" placeholder="Digite seu nome..." value={form.nome} onChange={handleChange} required />
                 </div>
                 <div className={styles.field}>
                   <label htmlFor="sobrenome">Sobrenome</label>
-                  <input type="text" id="sobrenome" placeholder="Digite seu sobrenome..." />
+                  <input type="text" id="sobrenome" placeholder="Digite seu sobrenome..." value={form.sobrenome} onChange={handleChange} required />
                 </div>
               </div>
 
               <div className={styles.row}>
                 <div className={styles.field}>
                   <label htmlFor="email">Email</label>
-                  <input type="email" id="email" placeholder="Digite seu melhor email..." />
+                  <input type="email" id="email" placeholder="Digite seu melhor email..." value={form.email} onChange={handleChange} required />
                 </div>
                 <div className={styles.field}>
                   <label htmlFor="telefone">Telefone</label>
-                  <input type="tel" id="telefone" placeholder="+00 ( )" />
+                  <input type="tel" id="telefone" placeholder="+00 ( )" value={form.telefone} onChange={handleChange} />
                 </div>
               </div>
 
@@ -75,19 +117,19 @@ export default function Contato() {
                 <label className={styles.radioLabel}>Você está aqui como...</label>
                 <div className={styles.radioOptions}>
                   <label className={styles.radioOption}>
-                    <input type="radio" name="tipo" />
+                    <input type="radio" name="tipo" value="Recrutador" checked={form.tipo === "Recrutador"} onChange={handleChange} />
                     <span>Recrutador</span>
                   </label>
                   <label className={styles.radioOption}>
-                    <input type="radio" name="tipo" />
+                    <input type="radio" name="tipo" value="Representante de Empresa" checked={form.tipo === "Representante de Empresa"} onChange={handleChange} />
                     <span>Representante de Empresa</span>
                   </label>
                   <label className={styles.radioOption}>
-                    <input type="radio" name="tipo" />
+                    <input type="radio" name="tipo" value="Interessado" checked={form.tipo === "Interessado"} onChange={handleChange} />
                     <span>Interessado</span>
                   </label>
                   <label className={styles.radioOption}>
-                    <input type="radio" name="tipo" />
+                    <input type="radio" name="tipo" value="Outro" checked={form.tipo === "Outro"} onChange={handleChange} />
                     <span>Outro</span>
                   </label>
                 </div>
@@ -99,10 +141,14 @@ export default function Contato() {
                   id="mensagem"
                   placeholder="Digite sua mensagem..."
                   className={styles.textarea}
+                  value={form.mensagem}
+                  onChange={handleChange}
+                  required
                 ></textarea>
               </div>
 
               <button type="submit" className={styles.button}>Enviar Mensagem</button>
+              {status && <p style={{ marginTop: 10 }}>{status}</p>}
               <div className={styles.contactMobileInfo}>
                 <div className={styles.contactItem}>
                   <img src="phoneIconAzul.svg" alt="Ícone telefone" />
