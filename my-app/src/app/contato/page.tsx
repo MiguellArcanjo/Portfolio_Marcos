@@ -151,8 +151,6 @@ export default function Contato() {
                 {loading ? "Enviando..." : "Enviar Mensagem"}
               </button>
 
-              {status && <p style={{ marginTop: 10 }}>{status}</p>}
-
               <div className={styles.contactMobileInfo}>
                 <div className={styles.contactItem}>
                   <img src="phoneIconAzul.svg" alt="Ícone telefone" />
