@@ -61,7 +61,13 @@ function Nav() {
             <p className={styles.function}>Design Visual Jr</p>
           </div>
         </div>
-
+        {/* Links para DESKTOP */}
+        <div className={styles.navLinks + ' ' + styles.desktopLinks}>
+          <a href="/#section1">Sobre</a>
+          <a href="/#section2">Atuação</a>
+          <a href="/#section3">Portfólio</a>
+          <a href="/contato">Contato</a>
+        </div>
         <div
           className={styles.hamburger}
           onClick={() => setIsMenuOpen(!isMenuOpen)}

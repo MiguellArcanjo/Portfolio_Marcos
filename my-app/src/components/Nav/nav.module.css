@@ -77,6 +77,10 @@
   display: flex !important;
 }
 
+.desktopLinks {
+  display: flex;
+}
+
 @media (max-width: 768px) {
   .logo {
     margin-left: 10px;
@@ -129,6 +133,10 @@
 
   .navLinks a:hover {
     color: #003288;
+  }
+
+  .desktopLinks {
+    display: none;
   }
 
   @keyframes fadeIn {

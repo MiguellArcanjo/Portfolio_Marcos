@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import styles from "./page.module.css";
-import Nav from "@/components/Nav/nav"
+import Nav from "@/components/Nav/nav";
 import Footer from "@/components/Footer/footer";
 import { useState } from "react";
 
@@ -14,7 +14,7 @@ export default function Contato() {
     tipo: "",
     mensagem: "",
   });
-  const [status, setStatus] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value, name, type } = e.target;
@@ -27,7 +27,8 @@ export default function Contato() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus(null);
+    setLoading(true);
+
     try {
       const res = await fetch("/api/send-email", {
         method: "POST",
@@ -38,15 +39,20 @@ export default function Contato() {
           message: `Telefone: ${form.telefone}\nTipo: ${form.tipo}\nMensagem: ${form.mensagem}`,
         }),
       });
+
       const data = await res.json();
+
       if (res.ok) {
-        setStatus("Mensagem enviada com sucesso!");
+        alert("✅ Mensagem enviada com sucesso!");
         setForm({ nome: "", sobrenome: "", email: "", telefone: "", tipo: "", mensagem: "" });
       } else {
         setStatus(data.message || "Erro ao enviar mensagem.");
+        alert("❌ Erro ao enviar mensagem.");
       }
     } catch {
-      setStatus("Erro ao enviar mensagem.");
+      alert("❌ Erro ao enviar mensagem.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -69,7 +75,6 @@ export default function Contato() {
                 <p>Preencha o formulário ao lado {'->'}</p>
                 <div>
                   <img src="figmaMini.svg" alt="" />
-
                   <img src="instaMini.svg" alt="" />
                   <img src="linkedinMini.svg" alt="" />
                 </div>
@@ -116,22 +121,18 @@ export default function Contato() {
               <div className={styles.radioGroup}>
                 <label className={styles.radioLabel}>Você está aqui como...</label>
                 <div className={styles.radioOptions}>
-                  <label className={styles.radioOption}>
-                    <input type="radio" name="tipo" value="Recrutador" checked={form.tipo === "Recrutador"} onChange={handleChange} />
-                    <span>Recrutador</span>
-                  </label>
-                  <label className={styles.radioOption}>
-                    <input type="radio" name="tipo" value="Representante de Empresa" checked={form.tipo === "Representante de Empresa"} onChange={handleChange} />
-                    <span>Representante de Empresa</span>
-                  </label>
-                  <label className={styles.radioOption}>
-                    <input type="radio" name="tipo" value="Interessado" checked={form.tipo === "Interessado"} onChange={handleChange} />
-                    <span>Interessado</span>
-                  </label>
-                  <label className={styles.radioOption}>
-                    <input type="radio" name="tipo" value="Outro" checked={form.tipo === "Outro"} onChange={handleChange} />
-                    <span>Outro</span>
-                  </label>
+                  {["Recrutador", "Representante de Empresa", "Interessado", "Outro"].map((tipo) => (
+                    <label className={styles.radioOption} key={tipo}>
+                      <input
+                        type="radio"
+                        name="tipo"
+                        value={tipo}
+                        checked={form.tipo === tipo}
+                        onChange={handleChange}
+                      />
+                      <span>{tipo}</span>
+                    </label>
+                  ))}
                 </div>
               </div>
 
@@ -147,8 +148,12 @@ export default function Contato() {
                 ></textarea>
               </div>
 
-              <button type="submit" className={styles.button}>Enviar Mensagem</button>
+              <button type="submit" className={styles.button} disabled={loading}>
+                {loading ? "Enviando..." : "Enviar Mensagem"}
+              </button>
+
               {status && <p style={{ marginTop: 10 }}>{status}</p>}
+
               <div className={styles.contactMobileInfo}>
                 <div className={styles.contactItem}>
                   <img src="phoneIconAzul.svg" alt="Ícone telefone" />
