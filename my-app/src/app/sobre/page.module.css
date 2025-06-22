@@ -662,9 +662,11 @@
     /* Card Section */
     .sectionCardBig {
         width: 100%;
+        max-width: 400px;
+        min-width: 0;
+        margin: 60px auto;
         height: auto;
         min-height: 450px;
-        margin: 60px 0;
         padding: 30px;
         border-radius: 20px 40px 20px 20px;
     }
@@ -847,7 +849,7 @@
     }
 
     .coursePlatform {
-        font-size: 18px;
+        text-align: left;
     }
 
     .courseColumn li {

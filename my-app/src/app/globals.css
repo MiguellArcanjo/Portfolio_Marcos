@@ -24,3 +24,11 @@ html {
   transform: translateY(0);
 }
 
+@media (max-width: 768px) {
+  .reveal-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
