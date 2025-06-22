@@ -93,40 +93,39 @@ export default function Sobre() {
           </section>
         </RevealSection>
 
-        <RevealSection>
-          <section 
-            className={styles.sectionCardBig}
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
-            style={!isMobile ? {
-              transform: `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`,
-              transition: 'transform 0.1s ease-out'
-            } : undefined}
-          >
-            {!isFlipped ? (
-              <div className={styles.cardBig}>
-                <div className={styles.cardBigContent}>
-                  <LogoCard className={styles.icon} />
-                  <p className={styles.titleCard}>Quem sou eu?</p>
-                </div>
+  
+        <section 
+          className={styles.sectionCardBig}
+          ref={cardRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          style={!isMobile ? {
+            transform: `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`,
+            transition: 'transform 0.1s ease-out'
+          } : undefined}
+        >
+          {!isFlipped ? (
+            <div className={styles.cardBig}>
+              <div className={styles.cardBigContent}>
+                <LogoCard className={styles.icon} />
+                <p className={styles.titleCard}>Quem sou eu?</p>
               </div>
-            ) : (
-              <div className={styles.cardBackContent}>
-                <div className={styles.leftSide}>
-                    <h2 className={styles.cardBackTitle}>Quem sou eu?</h2>
-                    <p className={styles.cardBackText}>Olá, sou Marcos Cunha, <strong>Product Designer</strong> formado em Análise e Desenvolvimento de Sistemas pelo Centro Universitário de João Pessoa (UNIPÊ).</p>
-                    <p className={styles.cardBackText}>Há três anos, venho ajudando pessoas e empresas a transformar suas necessidades em experiências digitais modernas e intuitivas. No início da minha carreira fiz o redesign do website do <strong>SECOOB</strong> — onde tive a oportunidade de aprender processos, padrões e boas práticas de design ao lado de um UI/UX Designer experiente. Com o passar dos anos, fui desenvolvendo diversos projetos até chegar ao cliente <strong>RealLed</strong>, para quem desenvolvi não apenas o website institucional, mas também ferramentas digitais, com o auxílio de inteligência artificial, para automatizar processos e simplificar o dia a dia do cliente.</p>
-                    <p className={styles.cardBackText}>Minha abordagem é simples: escuta ativa, pesquisa profunda e prototipagem ágil para entregar soluções digitais memoráveis. Acredito que design é um divisor de águas — potencializa ideias, conecta pessoas e impulsiona resultados.</p>
-                </div>
-                <div className={styles.rightSide}>
-                  <img src="fotoMarcos.svg" alt="Foto de Marcos Cunha" />
-                </div>
+            </div>
+          ) : (
+            <div className={styles.cardBackContent}>
+              <div className={styles.leftSide}>
+                  <h2 className={styles.cardBackTitle}>Quem sou eu?</h2>
+                  <p className={styles.cardBackText}>Olá, sou Marcos Cunha, <strong>Product Designer</strong> formado em Análise e Desenvolvimento de Sistemas pelo Centro Universitário de João Pessoa (UNIPÊ).</p>
+                  <p className={styles.cardBackText}>Há três anos, venho ajudando pessoas e empresas a transformar suas necessidades em experiências digitais modernas e intuitivas. No início da minha carreira fiz o redesign do website do <strong>SECOOB</strong> — onde tive a oportunidade de aprender processos, padrões e boas práticas de design ao lado de um UI/UX Designer experiente. Com o passar dos anos, fui desenvolvendo diversos projetos até chegar ao cliente <strong>RealLed</strong>, para quem desenvolvi não apenas o website institucional, mas também ferramentas digitais, com o auxílio de inteligência artificial, para automatizar processos e simplificar o dia a dia do cliente.</p>
+                  <p className={styles.cardBackText}>Minha abordagem é simples: escuta ativa, pesquisa profunda e prototipagem ágil para entregar soluções digitais memoráveis. Acredito que design é um divisor de águas — potencializa ideias, conecta pessoas e impulsiona resultados.</p>
               </div>
-            )}
-          </section>
-        </RevealSection>
+              <div className={styles.rightSide}>
+                <img src="fotoMarcos.svg" alt="Foto de Marcos Cunha" />
+              </div>
+            </div>
+          )}
+        </section>
       </main>
 
       <RevealSection>
