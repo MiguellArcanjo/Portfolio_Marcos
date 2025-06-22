@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "aos": "^2.3.4",
+    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.15.0",
     "next": "15.1.8",
     "nodemailer": "^7.0.3",

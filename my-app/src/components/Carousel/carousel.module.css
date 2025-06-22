@@ -1,0 +1,127 @@
+.swiperContainer {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.slideImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.swiperContainer :global(.swiper-button-next),
+.swiperContainer :global(.swiper-button-prev) {
+  color: #fff !important;
+  background-color: rgba(0, 24, 62, 0.5);
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.swiperContainer :global(.swiper-button-next::after),
+.swiperContainer :global(.swiper-button-prev::after) {
+  font-size: 18px !important;
+  font-weight: 900;
+}
+
+.swiperContainer :global(.swiper-pagination-bullet) {
+  background: #fff !important;
+  opacity: 0.5;
+}
+
+.swiperContainer :global(.swiper-pagination-bullet-active) {
+  opacity: 1;
+}
+
+.embla {
+  position: relative;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  backface-visibility: hidden;
+  touch-action: pan-y;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 800px;
+}
+
+.embla__slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.embla__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.embla__button svg {
+  fill: #00183E;
+  width: 28px;
+  height: 28px;
+}
+
+.embla__button__prev {
+  left: 15px;
+}
+
+.embla__button__next {
+  right: 15px;
+}
+
+.embla__dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.embla__dot {
+  background-color: #cccccc;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.embla__dot--selected {
+  background-color: #fff;
+  border: 2px solid #00183E;
+}
+
+@media (max-width: 768px) {
+  .embla__slide {
+    height: auto;
+    max-height: 400px;
+  }
+
+  .embla__slide__img {
+    object-fit: contain;
+  }
+} 

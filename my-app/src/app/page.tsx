@@ -7,10 +7,13 @@ import Footer from "@/components/Footer/footer";
 import { CardWhite, CardBlue } from "@/components/CardProject/card";
 import { useState, useEffect, useRef } from "react";
 import RevealSection from "@/components/RevealSection/revealSection";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("Todos");
   const tabs = ["Todos", "Interfaces", "Redesign", "UX Research", "Social Media"];
+
+  const router = useRouter();
 
   // Tilt Effect
   const tiltRef = useRef<HTMLDivElement>(null);
@@ -57,7 +60,7 @@ export default function Home() {
 
               <div className={styles.clickHere}>
                 <p>Quer saber mais sobre mim?</p>
-                <a href="">Clique aqui</a>
+                <a href="/sobre">Clique aqui</a>
               </div>
 
               <div className={styles.experience}>
@@ -68,8 +71,8 @@ export default function Home() {
               </div>
 
               <div className={styles.buttons}>
-                <button className={styles.contact}>Contato</button>
-                <button className={styles.portfolio}>Sobre mim</button>
+                <button className={styles.contact} onClick={() => router.push("/contato")}>Contato</button>
+                <button className={styles.portfolio} onClick={() => router.push("/sobre")}>Sobre mim</button>
               </div>
 
               <div className={styles.skills}>
